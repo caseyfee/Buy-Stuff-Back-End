@@ -122,7 +122,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
-
+    res.status(200).json(productData);
     if (!productData) {
       res.status(404).json({ message: 'Product deleted!' });
       return;
