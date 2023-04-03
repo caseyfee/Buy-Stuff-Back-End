@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }, {model: Tag, through: ProductTag}],
+      include: [{ model: Category }, { model: Tag, through: ProductTag }],
     });
     res.status(200).json(productData);
 
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category }, {model: Tag, through: ProductTag}],
+      include: [{ model: Category }, { model: Tag, through: ProductTag }],
     });
     res.status(200).json(productData);
 
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new product
-router.post('/',  (req, res) => {
+router.post('/', (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -119,7 +119,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const productData = await Tag.destroy({
       where: {
-        id:req.params.id,
+        id: req.params.id,
       },
     });
     res.status(200).json(productData);
