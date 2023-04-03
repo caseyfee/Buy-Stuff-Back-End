@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tag, Product, ProductTag, Category } = require('../../models');
+const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
   // create a new tag
   try {
     const tagData = await Tag.create({
-      tag_id: req.body.reader_id,
+      tag_id: req.body.tag_id,
     });
     res.status(200).json(tagData);
   } catch (err) {
